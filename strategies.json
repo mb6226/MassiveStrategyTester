@@ -1,0 +1,866 @@
+[
+  {
+    "name": "EMA20_RSI7_ATR14_TP50_SL30",
+    "ema_period": 20,
+    "rsi_period": 7,
+    "atr_period": 14,
+    "take_profit": 50,
+    "stop_loss": 30
+  },
+  {
+    "name": "EMA20_RSI7_ATR14_TP50_SL60",
+    "ema_period": 20,
+    "rsi_period": 7,
+    "atr_period": 14,
+    "take_profit": 50,
+    "stop_loss": 60
+  },
+  {
+    "name": "EMA20_RSI7_ATR14_TP50_SL90",
+    "ema_period": 20,
+    "rsi_period": 7,
+    "atr_period": 14,
+    "take_profit": 50,
+    "stop_loss": 90
+  },
+  {
+    "name": "EMA20_RSI7_ATR14_TP100_SL30",
+    "ema_period": 20,
+    "rsi_period": 7,
+    "atr_period": 14,
+    "take_profit": 100,
+    "stop_loss": 30
+  },
+  {
+    "name": "EMA20_RSI7_ATR14_TP100_SL60",
+    "ema_period": 20,
+    "rsi_period": 7,
+    "atr_period": 14,
+    "take_profit": 100,
+    "stop_loss": 60
+  },
+  {
+    "name": "EMA20_RSI7_ATR14_TP100_SL90",
+    "ema_period": 20,
+    "rsi_period": 7,
+    "atr_period": 14,
+    "take_profit": 100,
+    "stop_loss": 90
+  },
+  {
+    "name": "EMA20_RSI7_ATR14_TP150_SL30",
+    "ema_period": 20,
+    "rsi_period": 7,
+    "atr_period": 14,
+    "take_profit": 150,
+    "stop_loss": 30
+  },
+  {
+    "name": "EMA20_RSI7_ATR14_TP150_SL60",
+    "ema_period": 20,
+    "rsi_period": 7,
+    "atr_period": 14,
+    "take_profit": 150,
+    "stop_loss": 60
+  },
+  {
+    "name": "EMA20_RSI7_ATR14_TP150_SL90",
+    "ema_period": 20,
+    "rsi_period": 7,
+    "atr_period": 14,
+    "take_profit": 150,
+    "stop_loss": 90
+  },
+  {
+    "name": "EMA20_RSI14_ATR14_TP50_SL30",
+    "ema_period": 20,
+    "rsi_period": 14,
+    "atr_period": 14,
+    "take_profit": 50,
+    "stop_loss": 30
+  },
+  {
+    "name": "EMA20_RSI14_ATR14_TP50_SL60",
+    "ema_period": 20,
+    "rsi_period": 14,
+    "atr_period": 14,
+    "take_profit": 50,
+    "stop_loss": 60
+  },
+  {
+    "name": "EMA20_RSI14_ATR14_TP50_SL90",
+    "ema_period": 20,
+    "rsi_period": 14,
+    "atr_period": 14,
+    "take_profit": 50,
+    "stop_loss": 90
+  },
+  {
+    "name": "EMA20_RSI14_ATR14_TP100_SL30",
+    "ema_period": 20,
+    "rsi_period": 14,
+    "atr_period": 14,
+    "take_profit": 100,
+    "stop_loss": 30
+  },
+  {
+    "name": "EMA20_RSI14_ATR14_TP100_SL60",
+    "ema_period": 20,
+    "rsi_period": 14,
+    "atr_period": 14,
+    "take_profit": 100,
+    "stop_loss": 60
+  },
+  {
+    "name": "EMA20_RSI14_ATR14_TP100_SL90",
+    "ema_period": 20,
+    "rsi_period": 14,
+    "atr_period": 14,
+    "take_profit": 100,
+    "stop_loss": 90
+  },
+  {
+    "name": "EMA20_RSI14_ATR14_TP150_SL30",
+    "ema_period": 20,
+    "rsi_period": 14,
+    "atr_period": 14,
+    "take_profit": 150,
+    "stop_loss": 30
+  },
+  {
+    "name": "EMA20_RSI14_ATR14_TP150_SL60",
+    "ema_period": 20,
+    "rsi_period": 14,
+    "atr_period": 14,
+    "take_profit": 150,
+    "stop_loss": 60
+  },
+  {
+    "name": "EMA20_RSI14_ATR14_TP150_SL90",
+    "ema_period": 20,
+    "rsi_period": 14,
+    "atr_period": 14,
+    "take_profit": 150,
+    "stop_loss": 90
+  },
+  {
+    "name": "EMA20_RSI21_ATR14_TP50_SL30",
+    "ema_period": 20,
+    "rsi_period": 21,
+    "atr_period": 14,
+    "take_profit": 50,
+    "stop_loss": 30
+  },
+  {
+    "name": "EMA20_RSI21_ATR14_TP50_SL60",
+    "ema_period": 20,
+    "rsi_period": 21,
+    "atr_period": 14,
+    "take_profit": 50,
+    "stop_loss": 60
+  },
+  {
+    "name": "EMA20_RSI21_ATR14_TP50_SL90",
+    "ema_period": 20,
+    "rsi_period": 21,
+    "atr_period": 14,
+    "take_profit": 50,
+    "stop_loss": 90
+  },
+  {
+    "name": "EMA20_RSI21_ATR14_TP100_SL30",
+    "ema_period": 20,
+    "rsi_period": 21,
+    "atr_period": 14,
+    "take_profit": 100,
+    "stop_loss": 30
+  },
+  {
+    "name": "EMA20_RSI21_ATR14_TP100_SL60",
+    "ema_period": 20,
+    "rsi_period": 21,
+    "atr_period": 14,
+    "take_profit": 100,
+    "stop_loss": 60
+  },
+  {
+    "name": "EMA20_RSI21_ATR14_TP100_SL90",
+    "ema_period": 20,
+    "rsi_period": 21,
+    "atr_period": 14,
+    "take_profit": 100,
+    "stop_loss": 90
+  },
+  {
+    "name": "EMA20_RSI21_ATR14_TP150_SL30",
+    "ema_period": 20,
+    "rsi_period": 21,
+    "atr_period": 14,
+    "take_profit": 150,
+    "stop_loss": 30
+  },
+  {
+    "name": "EMA20_RSI21_ATR14_TP150_SL60",
+    "ema_period": 20,
+    "rsi_period": 21,
+    "atr_period": 14,
+    "take_profit": 150,
+    "stop_loss": 60
+  },
+  {
+    "name": "EMA20_RSI21_ATR14_TP150_SL90",
+    "ema_period": 20,
+    "rsi_period": 21,
+    "atr_period": 14,
+    "take_profit": 150,
+    "stop_loss": 90
+  },
+  {
+    "name": "EMA50_RSI7_ATR14_TP50_SL30",
+    "ema_period": 50,
+    "rsi_period": 7,
+    "atr_period": 14,
+    "take_profit": 50,
+    "stop_loss": 30
+  },
+  {
+    "name": "EMA50_RSI7_ATR14_TP50_SL60",
+    "ema_period": 50,
+    "rsi_period": 7,
+    "atr_period": 14,
+    "take_profit": 50,
+    "stop_loss": 60
+  },
+  {
+    "name": "EMA50_RSI7_ATR14_TP50_SL90",
+    "ema_period": 50,
+    "rsi_period": 7,
+    "atr_period": 14,
+    "take_profit": 50,
+    "stop_loss": 90
+  },
+  {
+    "name": "EMA50_RSI7_ATR14_TP100_SL30",
+    "ema_period": 50,
+    "rsi_period": 7,
+    "atr_period": 14,
+    "take_profit": 100,
+    "stop_loss": 30
+  },
+  {
+    "name": "EMA50_RSI7_ATR14_TP100_SL60",
+    "ema_period": 50,
+    "rsi_period": 7,
+    "atr_period": 14,
+    "take_profit": 100,
+    "stop_loss": 60
+  },
+  {
+    "name": "EMA50_RSI7_ATR14_TP100_SL90",
+    "ema_period": 50,
+    "rsi_period": 7,
+    "atr_period": 14,
+    "take_profit": 100,
+    "stop_loss": 90
+  },
+  {
+    "name": "EMA50_RSI7_ATR14_TP150_SL30",
+    "ema_period": 50,
+    "rsi_period": 7,
+    "atr_period": 14,
+    "take_profit": 150,
+    "stop_loss": 30
+  },
+  {
+    "name": "EMA50_RSI7_ATR14_TP150_SL60",
+    "ema_period": 50,
+    "rsi_period": 7,
+    "atr_period": 14,
+    "take_profit": 150,
+    "stop_loss": 60
+  },
+  {
+    "name": "EMA50_RSI7_ATR14_TP150_SL90",
+    "ema_period": 50,
+    "rsi_period": 7,
+    "atr_period": 14,
+    "take_profit": 150,
+    "stop_loss": 90
+  },
+  {
+    "name": "EMA50_RSI14_ATR14_TP50_SL30",
+    "ema_period": 50,
+    "rsi_period": 14,
+    "atr_period": 14,
+    "take_profit": 50,
+    "stop_loss": 30
+  },
+  {
+    "name": "EMA50_RSI14_ATR14_TP50_SL60",
+    "ema_period": 50,
+    "rsi_period": 14,
+    "atr_period": 14,
+    "take_profit": 50,
+    "stop_loss": 60
+  },
+  {
+    "name": "EMA50_RSI14_ATR14_TP50_SL90",
+    "ema_period": 50,
+    "rsi_period": 14,
+    "atr_period": 14,
+    "take_profit": 50,
+    "stop_loss": 90
+  },
+  {
+    "name": "EMA50_RSI14_ATR14_TP100_SL30",
+    "ema_period": 50,
+    "rsi_period": 14,
+    "atr_period": 14,
+    "take_profit": 100,
+    "stop_loss": 30
+  },
+  {
+    "name": "EMA50_RSI14_ATR14_TP100_SL60",
+    "ema_period": 50,
+    "rsi_period": 14,
+    "atr_period": 14,
+    "take_profit": 100,
+    "stop_loss": 60
+  },
+  {
+    "name": "EMA50_RSI14_ATR14_TP100_SL90",
+    "ema_period": 50,
+    "rsi_period": 14,
+    "atr_period": 14,
+    "take_profit": 100,
+    "stop_loss": 90
+  },
+  {
+    "name": "EMA50_RSI14_ATR14_TP150_SL30",
+    "ema_period": 50,
+    "rsi_period": 14,
+    "atr_period": 14,
+    "take_profit": 150,
+    "stop_loss": 30
+  },
+  {
+    "name": "EMA50_RSI14_ATR14_TP150_SL60",
+    "ema_period": 50,
+    "rsi_period": 14,
+    "atr_period": 14,
+    "take_profit": 150,
+    "stop_loss": 60
+  },
+  {
+    "name": "EMA50_RSI14_ATR14_TP150_SL90",
+    "ema_period": 50,
+    "rsi_period": 14,
+    "atr_period": 14,
+    "take_profit": 150,
+    "stop_loss": 90
+  },
+  {
+    "name": "EMA50_RSI21_ATR14_TP50_SL30",
+    "ema_period": 50,
+    "rsi_period": 21,
+    "atr_period": 14,
+    "take_profit": 50,
+    "stop_loss": 30
+  },
+  {
+    "name": "EMA50_RSI21_ATR14_TP50_SL60",
+    "ema_period": 50,
+    "rsi_period": 21,
+    "atr_period": 14,
+    "take_profit": 50,
+    "stop_loss": 60
+  },
+  {
+    "name": "EMA50_RSI21_ATR14_TP50_SL90",
+    "ema_period": 50,
+    "rsi_period": 21,
+    "atr_period": 14,
+    "take_profit": 50,
+    "stop_loss": 90
+  },
+  {
+    "name": "EMA50_RSI21_ATR14_TP100_SL30",
+    "ema_period": 50,
+    "rsi_period": 21,
+    "atr_period": 14,
+    "take_profit": 100,
+    "stop_loss": 30
+  },
+  {
+    "name": "EMA50_RSI21_ATR14_TP100_SL60",
+    "ema_period": 50,
+    "rsi_period": 21,
+    "atr_period": 14,
+    "take_profit": 100,
+    "stop_loss": 60
+  },
+  {
+    "name": "EMA50_RSI21_ATR14_TP100_SL90",
+    "ema_period": 50,
+    "rsi_period": 21,
+    "atr_period": 14,
+    "take_profit": 100,
+    "stop_loss": 90
+  },
+  {
+    "name": "EMA50_RSI21_ATR14_TP150_SL30",
+    "ema_period": 50,
+    "rsi_period": 21,
+    "atr_period": 14,
+    "take_profit": 150,
+    "stop_loss": 30
+  },
+  {
+    "name": "EMA50_RSI21_ATR14_TP150_SL60",
+    "ema_period": 50,
+    "rsi_period": 21,
+    "atr_period": 14,
+    "take_profit": 150,
+    "stop_loss": 60
+  },
+  {
+    "name": "EMA50_RSI21_ATR14_TP150_SL90",
+    "ema_period": 50,
+    "rsi_period": 21,
+    "atr_period": 14,
+    "take_profit": 150,
+    "stop_loss": 90
+  },
+  {
+    "name": "EMA100_RSI7_ATR14_TP50_SL30",
+    "ema_period": 100,
+    "rsi_period": 7,
+    "atr_period": 14,
+    "take_profit": 50,
+    "stop_loss": 30
+  },
+  {
+    "name": "EMA100_RSI7_ATR14_TP50_SL60",
+    "ema_period": 100,
+    "rsi_period": 7,
+    "atr_period": 14,
+    "take_profit": 50,
+    "stop_loss": 60
+  },
+  {
+    "name": "EMA100_RSI7_ATR14_TP50_SL90",
+    "ema_period": 100,
+    "rsi_period": 7,
+    "atr_period": 14,
+    "take_profit": 50,
+    "stop_loss": 90
+  },
+  {
+    "name": "EMA100_RSI7_ATR14_TP100_SL30",
+    "ema_period": 100,
+    "rsi_period": 7,
+    "atr_period": 14,
+    "take_profit": 100,
+    "stop_loss": 30
+  },
+  {
+    "name": "EMA100_RSI7_ATR14_TP100_SL60",
+    "ema_period": 100,
+    "rsi_period": 7,
+    "atr_period": 14,
+    "take_profit": 100,
+    "stop_loss": 60
+  },
+  {
+    "name": "EMA100_RSI7_ATR14_TP100_SL90",
+    "ema_period": 100,
+    "rsi_period": 7,
+    "atr_period": 14,
+    "take_profit": 100,
+    "stop_loss": 90
+  },
+  {
+    "name": "EMA100_RSI7_ATR14_TP150_SL30",
+    "ema_period": 100,
+    "rsi_period": 7,
+    "atr_period": 14,
+    "take_profit": 150,
+    "stop_loss": 30
+  },
+  {
+    "name": "EMA100_RSI7_ATR14_TP150_SL60",
+    "ema_period": 100,
+    "rsi_period": 7,
+    "atr_period": 14,
+    "take_profit": 150,
+    "stop_loss": 60
+  },
+  {
+    "name": "EMA100_RSI7_ATR14_TP150_SL90",
+    "ema_period": 100,
+    "rsi_period": 7,
+    "atr_period": 14,
+    "take_profit": 150,
+    "stop_loss": 90
+  },
+  {
+    "name": "EMA100_RSI14_ATR14_TP50_SL30",
+    "ema_period": 100,
+    "rsi_period": 14,
+    "atr_period": 14,
+    "take_profit": 50,
+    "stop_loss": 30
+  },
+  {
+    "name": "EMA100_RSI14_ATR14_TP50_SL60",
+    "ema_period": 100,
+    "rsi_period": 14,
+    "atr_period": 14,
+    "take_profit": 50,
+    "stop_loss": 60
+  },
+  {
+    "name": "EMA100_RSI14_ATR14_TP50_SL90",
+    "ema_period": 100,
+    "rsi_period": 14,
+    "atr_period": 14,
+    "take_profit": 50,
+    "stop_loss": 90
+  },
+  {
+    "name": "EMA100_RSI14_ATR14_TP100_SL30",
+    "ema_period": 100,
+    "rsi_period": 14,
+    "atr_period": 14,
+    "take_profit": 100,
+    "stop_loss": 30
+  },
+  {
+    "name": "EMA100_RSI14_ATR14_TP100_SL60",
+    "ema_period": 100,
+    "rsi_period": 14,
+    "atr_period": 14,
+    "take_profit": 100,
+    "stop_loss": 60
+  },
+  {
+    "name": "EMA100_RSI14_ATR14_TP100_SL90",
+    "ema_period": 100,
+    "rsi_period": 14,
+    "atr_period": 14,
+    "take_profit": 100,
+    "stop_loss": 90
+  },
+  {
+    "name": "EMA100_RSI14_ATR14_TP150_SL30",
+    "ema_period": 100,
+    "rsi_period": 14,
+    "atr_period": 14,
+    "take_profit": 150,
+    "stop_loss": 30
+  },
+  {
+    "name": "EMA100_RSI14_ATR14_TP150_SL60",
+    "ema_period": 100,
+    "rsi_period": 14,
+    "atr_period": 14,
+    "take_profit": 150,
+    "stop_loss": 60
+  },
+  {
+    "name": "EMA100_RSI14_ATR14_TP150_SL90",
+    "ema_period": 100,
+    "rsi_period": 14,
+    "atr_period": 14,
+    "take_profit": 150,
+    "stop_loss": 90
+  },
+  {
+    "name": "EMA100_RSI21_ATR14_TP50_SL30",
+    "ema_period": 100,
+    "rsi_period": 21,
+    "atr_period": 14,
+    "take_profit": 50,
+    "stop_loss": 30
+  },
+  {
+    "name": "EMA100_RSI21_ATR14_TP50_SL60",
+    "ema_period": 100,
+    "rsi_period": 21,
+    "atr_period": 14,
+    "take_profit": 50,
+    "stop_loss": 60
+  },
+  {
+    "name": "EMA100_RSI21_ATR14_TP50_SL90",
+    "ema_period": 100,
+    "rsi_period": 21,
+    "atr_period": 14,
+    "take_profit": 50,
+    "stop_loss": 90
+  },
+  {
+    "name": "EMA100_RSI21_ATR14_TP100_SL30",
+    "ema_period": 100,
+    "rsi_period": 21,
+    "atr_period": 14,
+    "take_profit": 100,
+    "stop_loss": 30
+  },
+  {
+    "name": "EMA100_RSI21_ATR14_TP100_SL60",
+    "ema_period": 100,
+    "rsi_period": 21,
+    "atr_period": 14,
+    "take_profit": 100,
+    "stop_loss": 60
+  },
+  {
+    "name": "EMA100_RSI21_ATR14_TP100_SL90",
+    "ema_period": 100,
+    "rsi_period": 21,
+    "atr_period": 14,
+    "take_profit": 100,
+    "stop_loss": 90
+  },
+  {
+    "name": "EMA100_RSI21_ATR14_TP150_SL30",
+    "ema_period": 100,
+    "rsi_period": 21,
+    "atr_period": 14,
+    "take_profit": 150,
+    "stop_loss": 30
+  },
+  {
+    "name": "EMA100_RSI21_ATR14_TP150_SL60",
+    "ema_period": 100,
+    "rsi_period": 21,
+    "atr_period": 14,
+    "take_profit": 150,
+    "stop_loss": 60
+  },
+  {
+    "name": "EMA100_RSI21_ATR14_TP150_SL90",
+    "ema_period": 100,
+    "rsi_period": 21,
+    "atr_period": 14,
+    "take_profit": 150,
+    "stop_loss": 90
+  },
+  {
+    "name": "EMA200_RSI7_ATR14_TP50_SL30",
+    "ema_period": 200,
+    "rsi_period": 7,
+    "atr_period": 14,
+    "take_profit": 50,
+    "stop_loss": 30
+  },
+  {
+    "name": "EMA200_RSI7_ATR14_TP50_SL60",
+    "ema_period": 200,
+    "rsi_period": 7,
+    "atr_period": 14,
+    "take_profit": 50,
+    "stop_loss": 60
+  },
+  {
+    "name": "EMA200_RSI7_ATR14_TP50_SL90",
+    "ema_period": 200,
+    "rsi_period": 7,
+    "atr_period": 14,
+    "take_profit": 50,
+    "stop_loss": 90
+  },
+  {
+    "name": "EMA200_RSI7_ATR14_TP100_SL30",
+    "ema_period": 200,
+    "rsi_period": 7,
+    "atr_period": 14,
+    "take_profit": 100,
+    "stop_loss": 30
+  },
+  {
+    "name": "EMA200_RSI7_ATR14_TP100_SL60",
+    "ema_period": 200,
+    "rsi_period": 7,
+    "atr_period": 14,
+    "take_profit": 100,
+    "stop_loss": 60
+  },
+  {
+    "name": "EMA200_RSI7_ATR14_TP100_SL90",
+    "ema_period": 200,
+    "rsi_period": 7,
+    "atr_period": 14,
+    "take_profit": 100,
+    "stop_loss": 90
+  },
+  {
+    "name": "EMA200_RSI7_ATR14_TP150_SL30",
+    "ema_period": 200,
+    "rsi_period": 7,
+    "atr_period": 14,
+    "take_profit": 150,
+    "stop_loss": 30
+  },
+  {
+    "name": "EMA200_RSI7_ATR14_TP150_SL60",
+    "ema_period": 200,
+    "rsi_period": 7,
+    "atr_period": 14,
+    "take_profit": 150,
+    "stop_loss": 60
+  },
+  {
+    "name": "EMA200_RSI7_ATR14_TP150_SL90",
+    "ema_period": 200,
+    "rsi_period": 7,
+    "atr_period": 14,
+    "take_profit": 150,
+    "stop_loss": 90
+  },
+  {
+    "name": "EMA200_RSI14_ATR14_TP50_SL30",
+    "ema_period": 200,
+    "rsi_period": 14,
+    "atr_period": 14,
+    "take_profit": 50,
+    "stop_loss": 30
+  },
+  {
+    "name": "EMA200_RSI14_ATR14_TP50_SL60",
+    "ema_period": 200,
+    "rsi_period": 14,
+    "atr_period": 14,
+    "take_profit": 50,
+    "stop_loss": 60
+  },
+  {
+    "name": "EMA200_RSI14_ATR14_TP50_SL90",
+    "ema_period": 200,
+    "rsi_period": 14,
+    "atr_period": 14,
+    "take_profit": 50,
+    "stop_loss": 90
+  },
+  {
+    "name": "EMA200_RSI14_ATR14_TP100_SL30",
+    "ema_period": 200,
+    "rsi_period": 14,
+    "atr_period": 14,
+    "take_profit": 100,
+    "stop_loss": 30
+  },
+  {
+    "name": "EMA200_RSI14_ATR14_TP100_SL60",
+    "ema_period": 200,
+    "rsi_period": 14,
+    "atr_period": 14,
+    "take_profit": 100,
+    "stop_loss": 60
+  },
+  {
+    "name": "EMA200_RSI14_ATR14_TP100_SL90",
+    "ema_period": 200,
+    "rsi_period": 14,
+    "atr_period": 14,
+    "take_profit": 100,
+    "stop_loss": 90
+  },
+  {
+    "name": "EMA200_RSI14_ATR14_TP150_SL30",
+    "ema_period": 200,
+    "rsi_period": 14,
+    "atr_period": 14,
+    "take_profit": 150,
+    "stop_loss": 30
+  },
+  {
+    "name": "EMA200_RSI14_ATR14_TP150_SL60",
+    "ema_period": 200,
+    "rsi_period": 14,
+    "atr_period": 14,
+    "take_profit": 150,
+    "stop_loss": 60
+  },
+  {
+    "name": "EMA200_RSI14_ATR14_TP150_SL90",
+    "ema_period": 200,
+    "rsi_period": 14,
+    "atr_period": 14,
+    "take_profit": 150,
+    "stop_loss": 90
+  },
+  {
+    "name": "EMA200_RSI21_ATR14_TP50_SL30",
+    "ema_period": 200,
+    "rsi_period": 21,
+    "atr_period": 14,
+    "take_profit": 50,
+    "stop_loss": 30
+  },
+  {
+    "name": "EMA200_RSI21_ATR14_TP50_SL60",
+    "ema_period": 200,
+    "rsi_period": 21,
+    "atr_period": 14,
+    "take_profit": 50,
+    "stop_loss": 60
+  },
+  {
+    "name": "EMA200_RSI21_ATR14_TP50_SL90",
+    "ema_period": 200,
+    "rsi_period": 21,
+    "atr_period": 14,
+    "take_profit": 50,
+    "stop_loss": 90
+  },
+  {
+    "name": "EMA200_RSI21_ATR14_TP100_SL30",
+    "ema_period": 200,
+    "rsi_period": 21,
+    "atr_period": 14,
+    "take_profit": 100,
+    "stop_loss": 30
+  },
+  {
+    "name": "EMA200_RSI21_ATR14_TP100_SL60",
+    "ema_period": 200,
+    "rsi_period": 21,
+    "atr_period": 14,
+    "take_profit": 100,
+    "stop_loss": 60
+  },
+  {
+    "name": "EMA200_RSI21_ATR14_TP100_SL90",
+    "ema_period": 200,
+    "rsi_period": 21,
+    "atr_period": 14,
+    "take_profit": 100,
+    "stop_loss": 90
+  },
+  {
+    "name": "EMA200_RSI21_ATR14_TP150_SL30",
+    "ema_period": 200,
+    "rsi_period": 21,
+    "atr_period": 14,
+    "take_profit": 150,
+    "stop_loss": 30
+  },
+  {
+    "name": "EMA200_RSI21_ATR14_TP150_SL60",
+    "ema_period": 200,
+    "rsi_period": 21,
+    "atr_period": 14,
+    "take_profit": 150,
+    "stop_loss": 60
+  },
+  {
+    "name": "EMA200_RSI21_ATR14_TP150_SL90",
+    "ema_period": 200,
+    "rsi_period": 21,
+    "atr_period": 14,
+    "take_profit": 150,
+    "stop_loss": 90
+  }
+]
