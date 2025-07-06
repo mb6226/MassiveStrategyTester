@@ -8,7 +8,7 @@ def is_pareto_efficient(df, metrics):
     for i, row_i in df.iterrows():
         for j, row_j in df.iterrows():
             if i != j:
-                # شرط: سود بیشتر، دراودان کمتر (winrate اختیاری)
+                # Condition: higher profit, lower drawdown (winrate optional)
                 better_or_equal = all(row_j[metric] >= row_i[metric] if metric == "profit" or metric == "winrate"
                                       else row_j[metric] <= row_i[metric] for metric in metrics)
                 strictly_better = any(row_j[metric] > row_i[metric] if metric == "profit" or metric == "winrate"
