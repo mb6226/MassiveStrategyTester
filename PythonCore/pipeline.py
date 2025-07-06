@@ -48,10 +48,10 @@ def main():
     ]:
         run_script(script)
 
-    if not args.no_pdf:
-        run_script("pdf_generator.py")
-
-    print("\n🎉 Pipeline completed. Report is ready in Reports/")
+    # Remove or comment out PDF generation step
+    # if not args.no_pdf:
+    #     run_script("pdf_generator.py")
+    print("\nPipeline completed. Report is ready in Reports/")
 
 if __name__ == "__main__":
     main()
