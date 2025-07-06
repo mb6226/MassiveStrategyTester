@@ -24,7 +24,7 @@ def main():
     efficient_mask = is_pareto_efficient(df, metrics)
     pareto_df = df[efficient_mask].copy()
     pareto_df.to_csv(OUTPUT_FILE, index=False)
-    print(f"✅ {len(pareto_df)} Pareto-optimal strategies saved to {OUTPUT_FILE}")
+    print(f"{len(pareto_df)} Pareto-optimal strategies saved to {OUTPUT_FILE}")
 
 if __name__ == "__main__":
     main()
