@@ -33,7 +33,7 @@ def rank_strategies(df):
     ]
 
     if df.empty:
-        print("⚠️ No strategy passed the initial thresholds.")
+        print("No strategy passed the initial thresholds.")
         return df
 
     # نرمال‌سازی
@@ -57,9 +57,9 @@ def main():
 
     if not ranked_df.empty:
         ranked_df.to_csv(OUTPUT_FILE, index=False)
-        print(f"✅ {len(ranked_df)} strategies saved to {OUTPUT_FILE}")
+        print(f"{len(ranked_df)} strategies saved to {OUTPUT_FILE}")
     else:
-        print("❌ No strategies saved.")
+        print("No strategies saved.")
 
 if __name__ == "__main__":
     main()
