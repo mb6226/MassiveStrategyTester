@@ -3,16 +3,16 @@ import pandas as pd
 def load_tick_data(file_path):
     """
     Load raw tick data from a CSV file without header.
-    The expected columns are:
-    datetime, bid, ask, last, volume, flags
+    Columns: datetime, bid, ask, last, volume, flags
     """
     try:
         df = pd.read_csv(
             file_path,
             names=['datetime', 'bid', 'ask', 'last', 'volume', 'flags'],
-            parse_dates=['datetime'],
-            infer_datetime_format=True
+            parse_dates=['datetime']
         )
+        # Convert string columns to numeric (very important)
+        df[['bid', 'ask', 'last', 'volume']] = df[['bid', 'ask', 'last', 'volume']].apply(pd.to_numeric, errors='coerce')
         print(f"✅ Loaded {len(df)} ticks from file: {file_path}")
         return df
     except Exception as e:
@@ -21,49 +21,31 @@ def load_tick_data(file_path):
 
 def resample_to_m1(df):
     """
-    Resample tick data into 1-minute OHLCV candles based on 'bid' price.
-    
-    Parameters:
-    - df: DataFrame with tick data indexed by datetime
-    
-    Returns:
-    - DataFrame with columns: Date, Open, High, Low, Close, Volume
+    Resample tick data into 1-minute OHLCV candles using 'bid' price.
     """
-    # Set datetime as index
     df = df.set_index('datetime')
-    
-    # Create OHLC for bid price
-    ohlc = df['bid'].resample('1T').ohlc()
-    
-    # Sum volume over each minute
-    volume = df['volume'].resample('1T').sum()
-    
-    # Combine OHLC and volume
-    ohlc['volume'] = volume
-    
-    # Drop intervals with no data
-    ohlc = ohlc.dropna()
-    
-    print(f"📊 Resampled tick data into {len(ohlc)} 1-minute candles.")
+    ohlc = df['bid'].resample('1min').ohlc()
+    ohlc['volume'] = df['volume'].resample('1min').sum()
+    ohlc.dropna(inplace=True)
+    print(f"📊 Resampled to {len(ohlc)} M1 candles.")
     return ohlc.reset_index()
 
 def save_candles(df, output_path):
     """
-    Save the resampled OHLCV data to CSV with standard column names.
+    Save the resampled OHLCV data to CSV.
     """
     df.columns = ['Date', 'Open', 'High', 'Low', 'Close', 'Volume']
     df.to_csv(output_path, index=False)
-    print(f"💾 Saved prepared data to: {output_path}")
+    print(f"💾 Saved to: {output_path}")
 
 if __name__ == "__main__":
     import argparse
-    
-    parser = argparse.ArgumentParser(description="Convert MT5 tick data CSV to 1-minute OHLCV candles.")
-    parser.add_argument('--input', type=str, default='Data/EURUSD_mt5_ticks.csv', help='Path to input tick CSV file')
-    parser.add_argument('--output', type=str, default='Data/prepared_m1.csv', help='Path to output 1-minute CSV file')
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--input', type=str, default='Data/EURUSD_mt5_ticks.csv')
+    parser.add_argument('--output', type=str, default='Data/prepared_m1.csv')
     args = parser.parse_args()
-    
-    tick_df = load_tick_data(args.input)
-    if tick_df is not None:
-        m1_df = resample_to_m1(tick_df)
-        save_candles(m1_df, args.output)
+
+    df_tick = load_tick_data(args.input)
+    if df_tick is not None:
+        df_m1 = resample_to_m1(df_tick)
+        save_candles(df_m1, args.output)
