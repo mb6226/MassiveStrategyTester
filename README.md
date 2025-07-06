@@ -6,13 +6,15 @@ A comprehensive pipeline for massive Forex strategy backtesting, optimization, A
 
 Project Structure
 
+```
 MassiveStrategyTester/
-├── PythonCore/              # Python scripts for data processing and ML
-├── Reports/                 # Output reports and charts
-├── .github/workflows/       # GitHub Actions workflow files
-├── Templates/               # HTML report templates
-├── requirements.txt         # Python dependencies
-├── README.md                # This documentation file
+├── PythonCore/            # Python scripts for data processing and ML
+├── Reports/               # Output reports and charts
+├── .github/workflows/     # GitHub Actions workflow files
+├── Templates/             # HTML report templates
+├── requirements.txt       # Python dependencies
+├── README.md              # This documentation file
+```
 
 ---
 
