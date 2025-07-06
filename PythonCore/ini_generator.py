@@ -1,38 +1,30 @@
-# PythonCore/ini_generator.py
-
 import os
-import configparser
+import argparse
 
-def generate_ini(template_path, output_path, params):
-    config = configparser.ConfigParser()
-    config.read(template_path)
+def generate_ini_files(template_path, output_dir, param_name, start, stop, step):
+    # Load the base ini template
+    with open(template_path, 'r') as file:
+        template = file.read()
 
-    for section, values in params.items():
-        if section not in config:
-            config.add_section(section)
-        for key, value in values.items():
-            config[section][key] = str(value)
+    os.makedirs(output_dir, exist_ok=True)
 
-    with open(output_path, 'w') as configfile:
-        config.write(configfile)
-    print(f"✅ INI file saved to: {output_path}")
+    # Generate ini files with different parameter values
+    for value in range(start, stop + 1, step):
+        modified = template.replace(f"{param_name}=default", f"{param_name}={value}")
+        output_path = os.path.join(output_dir, f"{param_name}_{value}.ini")
+        with open(output_path, 'w') as f:
+            f.write(modified)
+        print(f"✅ Created: {output_path}")
 
 if __name__ == "__main__":
-    import argparse
-
     parser = argparse.ArgumentParser()
-    parser.add_argument('--template', type=str, default='Backtests/configs/example.ini')
-    parser.add_argument('--output_dir', type=str, default='Backtests/configs/generated')
+    parser.add_argument('--template', type=str, default='Backtests/template.ini', help='Path to base .ini file')
+    parser.add_argument('--output_dir', type=str, default='Backtests/configs', help='Directory to save generated .ini files')
+    parser.add_argument('--param', type=str, default='RSI_Period', help='Parameter name to vary')
+    parser.add_argument('--start', type=int, default=5, help='Start value of parameter')
+    parser.add_argument('--stop', type=int, default=15, help='Stop value of parameter')
+    parser.add_argument('--step', type=int, default=2, help='Step size')
+
     args = parser.parse_args()
 
-    os.makedirs(args.output_dir, exist_ok=True)
-
-    strategies = [
-        {'Expert': {'Inputs': 'MA=50;TP=100;SL=30'}},
-        {'Expert': {'Inputs': 'MA=20;TP=80;SL=20'}},
-        {'Expert': {'Inputs': 'MA=10;TP=50;SL=15'}}
-    ]
-
-    for i, params in enumerate(strategies):
-        output_file = os.path.join(args.output_dir, f'strategy_{i+1}.ini')
-        generate_ini(args.template, output_file, params)
+    generate_ini_files(args.template, args.output_dir, args.param, args.start, args.stop, args.step)
