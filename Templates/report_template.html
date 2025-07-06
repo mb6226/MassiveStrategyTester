@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ title }}</title>
+  <style>
+    body { font-family: sans-serif; margin: 20px; }
+    h1, h2 { color: #2c3e50; }
+    table { border-collapse: collapse; width: 100%; margin-bottom: 30px; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    th { background-color: #f2f2f2; }
+    img { max-width: 100%; height: auto; margin-bottom: 30px; }
+  </style>
+</head>
+<body>
+  <h1>{{ title }}</h1>
+  <p><strong>Generated at:</strong> {{ generated_at }}</p>
+
+  <h2>📊 Optimized Strategies</h2>
+  {% if optimized_data %}
+    <table>
+      <tr>
+        {% for col in optimized_data[0].keys() %}
+          <th>{{ col }}</th>
+        {% endfor %}
+      </tr>
+      {% for row in optimized_data %}
+        <tr>
+          {% for val in row.values() %}
+            <td>{{ val }}</td>
+          {% endfor %}
+        </tr>
+      {% endfor %}
+    </table>
+  {% else %}
+    <p>No optimized strategies found.</p>
+  {% endif %}
+
+  <h2>🧮 Pareto Strategies</h2>
+  {% if pareto_data %}
+    <table>
+      <tr>
+        {% for col in pareto_data[0].keys() %}
+          <th>{{ col }}</th>
+        {% endfor %}
+      </tr>
+      {% for row in pareto_data %}
+        <tr>
+          {% for val in row.values() %}
+            <td>{{ val }}</td>
+          {% endfor %}
+        </tr>
+      {% endfor %}
+    </table>
+  {% else %}
+    <p>No pareto strategies found.</p>
+  {% endif %}
+
+  <h2>📈 Charts</h2>
+  {% for path in image_paths %}
+    <img src="{{ path }}" alt="Chart">
+  {% endfor %}
+</body>
+</html>
