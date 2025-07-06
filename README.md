@@ -1,94 +1,96 @@
-# Massive Forex Strategy Tester v1
+MassiveStrategyTester
 
-This project is designed to generate, backtest, evaluate, and select the best-performing trading strategies for the Forex market. It supports both **MetaTrader 5 (MQL5)** and **Python-based** backtesting engines and utilizes high-quality historical data extracted via **Tickstory**.
-
----
-
-## 🚀 Project Goals
-
-- Automatically generate thousands of rule-based trading strategies
-- Backtest strategies on historical data (in both Python and MT5)
-- Analyze results and filter high-performance strategies using key metrics
-- Use AI-based models to enhance strategy selection and avoid overfitting
-- Store and visualize strategy performance reports
+A comprehensive pipeline for massive Forex strategy backtesting, optimization, AI-based selection, and reporting.
 
 ---
 
-## 🧩 Project Structure
+Project Structure
 
-```
 MassiveStrategyTester/
-├── Docs/           # Project documentation
-│   └── project_description.md
-├── Data/           # Historical data (from Tickstory)
-├── PythonCore/     # Python engine for generation, testing, AI filtering
-│   ├── generator.py
-│   ├── backtester.py
-│   ├── evaluator.py
-│   └── ai_module.py
-├── MT5_Core/       # MQL5 code for strategy testing in MetaTrader
-│   ├── StrategyTemplate.mq5
-│   ├── BatchBacktest.mq5
-│   └── ResultsLogger.mqh
-├── Reports/        # Output results and charts
-├── README.md       # This file
-└── .gitignore
-```
+├── PythonCore/              # Python scripts for data processing and ML
+├── Reports/                 # Output reports and charts
+├── .github/workflows/       # GitHub Actions workflow files
+├── Templates/               # HTML report templates
+├── requirements.txt         # Python dependencies
+├── README.md                # This documentation file
 
 ---
 
-## 🛠 Technologies Used
+Quick Start
 
-| Component       | Stack                            |
-|----------------|-----------------------------------|
-| Backtesting     | MetaTrader 5 (MQL5), Python (Backtrader, Pandas) |
-| Data Source     | Tickstory CSV (M1+)               |
-| Strategy Logic  | Rule-based strategies (EMA, RSI, ATR, etc.) |
-| AI Modules      | Scikit-learn / XGBoost / TensorFlow (optional) |
-| Evaluation      | Python + Pandas + Matplotlib      |
-| Storage         | CSV, SQLite, or JSON              |
+1. Clone the repository
 
----
+git clone https://github.com/yourusername/MassiveStrategyTester.git
+cd MassiveStrategyTester
 
-## 🧠 AI Integration
+2. Install dependencies
 
-The project plans to use AI models in the following areas:
-- Strategy performance prediction (meta-learning)
-- Filtering overfit strategies based on forward test simulation
-- Clustering similar strategies and finding robust groups
+pip install -r requirements.txt
 
 ---
 
-## 📌 Roadmap (Phase Plan)
+Running the Pipeline Locally
 
-### Phase 1: Project Planning
-- Define rules, inputs, and test metrics
-- Organize folders and toolchains
+Run the entire strategy testing pipeline:
 
-### Phase 2: Strategy Generator
-- Create a combinatorial engine for technical rule generation
+python PythonCore/pipeline.py --num_strategies 500 --symbol EURUSD --data Data/EURUSD_M1.csv
 
-### Phase 3: Backtest Engine
-- Implement backtesting logic in both Python and MQL5
+You can customize parameters:
 
-### Phase 4: Result Evaluation
-- Analyze results and rank strategies using performance metrics
-
-### Phase 5: AI-Based Filtering
-- Train AI models to score, cluster, and refine strategy selection
-
-### Phase 6: Visualization & Reporting
-- Create graphs and export results for top strategies
+- --num_strategies: Number of strategies to generate (default 1000)
+- --symbol: Trading pair symbol (default EURUSD)
+- --data: Path to input market data CSV file
+- --no-pdf: Skip PDF report generation
 
 ---
 
-## 📎 License
+Reports and Results
 
-MIT License - feel free to use, share, and contribute.
+- Reports are saved in the Reports/ directory:
+  - final_report.html — Interactive HTML report
+  - final_report.pdf — PDF report version
+  - Chart images (*.png)
 
 ---
 
-## 🤝 Contributions
+Features
 
-Pull requests, ideas, and forks are welcome!  
-If you like the project, give it a ⭐ on GitHub!
+- Massive strategy generation and backtesting
+- Pareto front filtering for multi-objective optimization
+- AI-based ML model for profitable strategy prediction
+- Automated report generation with visualizations
+- CLI and Web UI (Streamlit) for easier control
+
+---
+
+GitHub Actions CI/CD
+
+This project includes a GitHub Actions workflow to automate running the pipeline on each push to main or master.
+
+- Workflow file path: .github/workflows/pipeline.yml
+- Runs the full pipeline and uploads reports as artifacts
+- Optionally publishes HTML reports via GitHub Pages
+
+Setup
+
+1. Ensure .github/workflows/pipeline.yml and requirements.txt are in the repository.
+2. Push changes to GitHub.
+3. Visit the Actions tab to monitor runs.
+4. (Optional) Enable GitHub Pages via Settings > Pages selecting the gh-pages branch to serve reports publicly.
+
+---
+
+CLI and Web UI
+
+- Run python PythonCore/cli.py for a terminal menu interface.
+- Run streamlit run PythonCore/app.py for a web dashboard.
+
+---
+
+Contact & Support
+
+For questions, feature requests, or contributions, please open an issue or contact me via GitHub.
+
+---
+
+Happy backtesting! 🚀
