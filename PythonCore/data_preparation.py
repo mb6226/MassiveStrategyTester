@@ -1,35 +1,97 @@
+# PythonCore/data_preparation.py
+
 import pandas as pd
 
 def load_raw_data(file_path):
-    # خواندن فایل CSV خام
-    df = pd.read_csv(file_path)
-    return df
+    """
+    Load raw CSV data file.
+
+    Parameters:
+        file_path (str): Path to the raw CSV file.
+
+    Returns:
+        pd.DataFrame: Loaded dataframe.
+    """
+    try:
+        df = pd.read_csv(file_path)
+        print(f"Raw data loaded: {len(df)} rows")
+        return df
+    except Exception as e:
+        print(f"Error loading data: {e}")
+        return None
 
 def clean_data(df):
-    # حذف ردیف‌های ناقص یا پرکردن مقادیر گم‌شده
-    df = df.dropna()
-    # اصلاح فرمت تاریخ، تایم‌استمپ و...
-    df['Date'] = pd.to_datetime(df['Date'])
-    # سایر اصلاحات لازم
-    return df
+    """
+    Clean data by removing incomplete rows and fixing data types.
+
+    Parameters:
+        df (pd.DataFrame): Raw dataframe.
+
+    Returns:
+        pd.DataFrame: Cleaned dataframe.
+    """
+    # Drop rows with missing values
+    df_clean = df.dropna()
+    
+    # Convert date/time columns to datetime objects
+    for col in ['Date', 'Time']:
+        if col in df_clean.columns:
+            df_clean[col] = pd.to_datetime(df_clean[col], errors='coerce')
+    
+    # Remove rows with invalid dates
+    df_clean = df_clean.dropna(subset=['Date'])
+    
+    print(f"Cleaned data: {len(df_clean)} rows after dropping missing/invalid dates")
+    return df_clean
 
 def standardize_data(df):
-    # اطمینان از ستون‌های مورد نیاز و ترتیب آنها
+    """
+    Standardize data format for pipeline compatibility.
+
+    Parameters:
+        df (pd.DataFrame): Cleaned dataframe.
+
+    Returns:
+        pd.DataFrame: Standardized dataframe.
+    """
+    # Define required columns
     required_columns = ['Date', 'Open', 'High', 'Low', 'Close', 'Volume']
-    df = df[required_columns]
-    # مرتب‌سازی بر اساس تاریخ
-    df = df.sort_values(by='Date')
-    return df
+    
+    # Check and warn if columns missing
+    missing_cols = [col for col in required_columns if col not in df.columns]
+    if missing_cols:
+        print(f"Warning: Missing columns in data: {missing_cols}")
+    
+    # Keep only required columns if they exist
+    df_std = df[[col for col in required_columns if col in df.columns]]
+    
+    # Sort by Date ascending
+    df_std = df_std.sort_values(by='Date')
+    
+    print(f"Standardized data ready: {len(df_std)} rows")
+    return df_std
 
 def save_prepared_data(df, output_path):
+    """
+    Save prepared data to CSV.
+
+    Parameters:
+        df (pd.DataFrame): Standardized dataframe.
+        output_path (str): Path to save CSV file.
+    """
     df.to_csv(output_path, index=False)
-    print(f"Prepared data saved to {output_path}")
+    print(f"Prepared data saved to: {output_path}")
 
 if __name__ == "__main__":
-    raw_file = "Data/raw_data.csv"
-    prepared_file = "Data/prepared_data.csv"
+    import argparse
 
-    df_raw = load_raw_data(raw_file)
-    df_clean = clean_data(df_raw)
-    df_std = standardize_data(df_clean)
-    save_prepared_data(df_std, prepared_file)
+    parser = argparse.ArgumentParser(description="Prepare raw market data CSV for strategy testing pipeline.")
+    parser.add_argument('--input', type=str, default='Data/raw_data.csv', help='Path to raw input CSV file')
+    parser.add_argument('--output', type=str, default='Data/prepared_data.csv', help='Path to save prepared CSV file')
+    args = parser.parse_args()
+
+    df_raw = load_raw_data(args.input)
+    if df_raw is not None:
+        df_clean = clean_data(df_raw)
+        df_std = standardize_data(df_clean)
+        save_prepared_data(df_std, args.output)
