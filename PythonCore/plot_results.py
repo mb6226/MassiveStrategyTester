@@ -42,7 +42,7 @@ def main():
     plot_profit_distribution(df)
     plot_profit_vs_drawdown(df)
     plot_top_strategies(df)
-    print("✅ Charts saved to Reports/ folder.")
+    print("Charts saved to Reports/ folder.")
 
 if __name__ == "__main__":
     main()
