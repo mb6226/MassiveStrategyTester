@@ -32,7 +32,7 @@ def generate_report(pareto_df, opt_df):
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         f.write(rendered)
 
-    print(f"✅ Final report saved to {OUTPUT_FILE}")
+    print(f"Final report saved to {OUTPUT_FILE}")
 
 if __name__ == "__main__":
     pareto_df, opt_df = load_data()
