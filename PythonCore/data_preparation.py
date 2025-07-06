@@ -82,6 +82,33 @@ def save_prepared_data(df, output_path):
     df.to_csv(output_path, index=False)
     print(f"Prepared data saved to: {output_path}")
 
+def load_tick_data(file_path):
+    """
+    Load tick data where date and time are in two separate columns.
+    Expected format:
+        Column 0: YYYYMMDD
+        Column 1: HH:MM:SS
+        Column 2-5: bid, ask, last, volume
+    """
+    try:
+        df = pd.read_csv(
+            file_path,
+            header=None,
+            names=['date', 'time', 'bid', 'ask', 'last', 'volume']
+        )
+
+        # Combine date + time into single datetime string
+        df['datetime'] = pd.to_datetime(df['date'].astype(str) + ' ' + df['time'], format='%Y%m%d %H:%M:%S')
+
+        # Convert prices/volume to numeric
+        df[['bid', 'ask', 'last', 'volume']] = df[['bid', 'ask', 'last', 'volume']].apply(pd.to_numeric, errors='coerce')
+
+        print(f"✅ Loaded {len(df)} ticks from file: {file_path}")
+        return df[['datetime', 'bid', 'ask', 'last', 'volume']]
+    except Exception as e:
+        print(f"❌ Error loading tick data: {e}")
+        return None
+
 if __name__ == "__main__":
     import argparse
 
