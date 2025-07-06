@@ -162,5 +162,27 @@ Notes:
 - The script handles missing data by removing incomplete rows.
 - Date columns are parsed into proper datetime format.
 
+---
+
+## Preparing Tick Data for Strategy Pipeline
+
+1. Place your raw tick data file `EURUSD_mt5_ticks.csv` inside the `Data/` folder.
+
+2. Run the tick data preparation script to convert raw tick data to 1-minute OHLCV candles:
+
+python PythonCore/tick_data_preparation.py --input Data/EURUSD_mt5_ticks.csv --output Data/prepared_m1.csv
+
+
+3. Use the output file `Data/prepared_m1.csv` as input for the main strategy testing pipeline.
+
+---
+
+Notes:
+
+- Raw tick data should be in MT5 tick format without header, with columns: datetime, bid, ask, last, volume, flags.
+- The script resamples tick data to 1-minute bars using bid prices and sums volume.
+- Empty time intervals without ticks are excluded.
+
+
 
 Happy backtesting! 🚀
