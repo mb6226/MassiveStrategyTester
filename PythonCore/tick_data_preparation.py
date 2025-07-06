@@ -3,15 +3,16 @@ import pandas as pd
 def load_tick_data(file_path):
     """
     Load raw tick data from a CSV file without header.
-    Columns: datetime, bid, ask, last, volume, flags
+    Expected datetime format: '2025.07.01 23:59:55.000'
     """
     try:
+        date_parser = lambda x: pd.to_datetime(x, format='%Y.%m.%d %H:%M:%S.%f')
         df = pd.read_csv(
             file_path,
             names=['datetime', 'bid', 'ask', 'last', 'volume', 'flags'],
-            parse_dates=['datetime']
+            parse_dates=['datetime'],
+            date_parser=date_parser
         )
-        # Convert string columns to numeric (very important)
         df[['bid', 'ask', 'last', 'volume']] = df[['bid', 'ask', 'last', 'volume']].apply(pd.to_numeric, errors='coerce')
         print(f"✅ Loaded {len(df)} ticks from file: {file_path}")
         return df
