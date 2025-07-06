@@ -1,4 +1,4 @@
 # ai_module.py
-# ماژول هوش مصنوعی
+# Artificial Intelligence module
 
 # ...existing code...

@@ -1,4 +1,4 @@
 # backtester.py
-# موتور بک‌تست پایتون
+# Python backtesting engine
 
 # ...existing code...

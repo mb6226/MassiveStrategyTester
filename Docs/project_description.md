@@ -1,3 +1,3 @@
-# شرح پروژه MassiveStrategyTester
+# Project Description
 
-این فایل شامل توضیحات کلی، اهداف و تحلیل فنی پروژه است.
+This file contains the overall description, goals, and technical analysis of the MassiveStrategyTester project.

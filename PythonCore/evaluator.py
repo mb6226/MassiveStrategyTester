@@ -1,4 +1,4 @@
 # evaluator.py
-# آنالیزگر و فیلتر
+# Analyzer and filter module
 
 # ...existing code...

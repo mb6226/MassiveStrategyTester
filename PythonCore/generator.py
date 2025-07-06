@@ -1,4 +1,4 @@
 # generator.py
-# تولیدکننده استراتژی‌ها
+# Strategy generator module
 
 # ...existing code...
