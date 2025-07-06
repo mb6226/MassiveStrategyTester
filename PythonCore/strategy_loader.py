@@ -6,7 +6,7 @@ from backtester import backtest_strategy
 
 RESULTS_FILE = "Reports/all_results.csv"
 STRATEGY_FILE = "strategies.json"
-DATA_FILE = "Data/EURUSD_M1.csv"  # You can change this to your actual pair
+DATA_FILE = "Data/prepared_m1.csv"  # Updated to use prepared M1 data
 
 def load_data():
     df = pd.read_csv(DATA_FILE)
