@@ -11,8 +11,8 @@ DATA_FILE = "Data/prepared_m1.csv"  # Updated to use prepared M1 data
 def load_data():
     df = pd.read_csv(DATA_FILE)
     df.rename(columns=lambda x: x.strip(), inplace=True)
-    df['Time'] = pd.to_datetime(df['Time'])
-    df.set_index('Time', inplace=True)
+    df['Date'] = pd.to_datetime(df['Date'])  # Changed from 'Time' to 'Date'
+    df.set_index('Date', inplace=True)
     return df
 
 def run_batch_backtest():
