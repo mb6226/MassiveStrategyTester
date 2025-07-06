@@ -1,0 +1,8 @@
+pandas
+matplotlib
+seaborn
+scikit-learn
+jinja2
+weasyprint
+streamlit
+joblib
