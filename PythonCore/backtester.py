@@ -19,16 +19,16 @@ def backtest_strategy(data, strategy):
             continue
 
         if position is None:
-            if ema[i] > data['Close'][i-1] and rsi[i] < 30:
+            if ema[i] > data['Close'].iloc[i-1] and rsi[i] < 30:
                 position = 'long'
-                entry_price = data['Close'][i]
+                entry_price = data['Close'].iloc[i]
                 trades += 1
-            elif ema[i] < data['Close'][i-1] and rsi[i] > 70:
+            elif ema[i] < data['Close'].iloc[i-1] and rsi[i] > 70:
                 position = 'short'
-                entry_price = data['Close'][i]
+                entry_price = data['Close'].iloc[i]
                 trades += 1
         else:
-            current_price = data['Close'][i]
+            current_price = data['Close'].iloc[i]
             if position == 'long':
                 if current_price >= entry_price + take_profit:
                     profit += take_profit
