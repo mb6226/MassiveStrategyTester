@@ -14,6 +14,8 @@ def backtest_strategy(data, strategy):
     stop_loss = strategy['stop_loss']
     take_profit = strategy['take_profit']
 
+    equity_curve = [0]  # Track cumulative profit for drawdown
+
     for i in range(len(data)):
         if i < max(strategy['ema_period'], strategy['rsi_period'], strategy['atr_period']):
             continue
@@ -43,8 +45,15 @@ def backtest_strategy(data, strategy):
                 elif current_price >= entry_price + stop_loss:
                     profit -= stop_loss
                     position = None
+        equity_curve.append(profit)
 
-    return {"strategy_name": strategy["name"], "profit": profit, "trades": trades}
+    # Calculate max drawdown as percentage
+    equity_curve = pd.Series(equity_curve)
+    running_max = equity_curve.cummax()
+    drawdowns = (equity_curve - running_max) / running_max.replace(0, 1)
+    max_drawdown = drawdowns.min() * 100  # percent
+
+    return {"strategy_name": strategy["name"], "profit": profit, "trades": trades, "drawdown": max_drawdown}
 
 def compute_rsi(series, period):
     delta = series.diff()
