@@ -11,6 +11,7 @@ def backtest_strategy(data, strategy):
     entry_price = 0
     profit = 0
     trades = 0
+    wins = 0  # Track number of winning trades
     stop_loss = strategy['stop_loss']
     take_profit = strategy['take_profit']
 
@@ -34,6 +35,7 @@ def backtest_strategy(data, strategy):
             if position == 'long':
                 if current_price >= entry_price + take_profit:
                     profit += take_profit
+                    wins += 1
                     position = None
                 elif current_price <= entry_price - stop_loss:
                     profit -= stop_loss
@@ -41,6 +43,7 @@ def backtest_strategy(data, strategy):
             elif position == 'short':
                 if current_price <= entry_price - take_profit:
                     profit += take_profit
+                    wins += 1
                     position = None
                 elif current_price >= entry_price + stop_loss:
                     profit -= stop_loss
@@ -53,7 +56,9 @@ def backtest_strategy(data, strategy):
     drawdowns = (equity_curve - running_max) / running_max.replace(0, 1)
     max_drawdown = drawdowns.min() * 100  # percent
 
-    return {"strategy_name": strategy["name"], "profit": profit, "trades": trades, "drawdown": max_drawdown}
+    winrate = (wins / trades * 100) if trades > 0 else 0
+
+    return {"strategy_name": strategy["name"], "profit": profit, "trades": trades, "drawdown": max_drawdown, "winrate": winrate}
 
 def compute_rsi(series, period):
     delta = series.diff()
