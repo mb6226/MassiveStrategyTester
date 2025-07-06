@@ -1,10 +1,8 @@
-# PythonCore/data_preparation.py
-
 import pandas as pd
 
 def load_raw_data(file_path):
     """
-    Load raw CSV data file.
+    Load raw CSV data file (candle format).
 
     Parameters:
         file_path (str): Path to the raw CSV file.
@@ -39,7 +37,8 @@ def clean_data(df):
             df_clean[col] = pd.to_datetime(df_clean[col], errors='coerce')
     
     # Remove rows with invalid dates
-    df_clean = df_clean.dropna(subset=['Date'])
+    if 'Date' in df_clean.columns:
+        df_clean = df_clean.dropna(subset=['Date'])
     
     print(f"Cleaned data: {len(df_clean)} rows after dropping missing/invalid dates")
     return df_clean
@@ -115,10 +114,25 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Prepare raw market data CSV for strategy testing pipeline.")
     parser.add_argument('--input', type=str, default='Data/raw_data.csv', help='Path to raw input CSV file')
     parser.add_argument('--output', type=str, default='Data/prepared_data.csv', help='Path to save prepared CSV file')
+    parser.add_argument('--mode', type=str, choices=['candle', 'tick'], default='candle',
+                        help='Mode of data preparation: "candle" for OHLC, "tick" for tick data')
     args = parser.parse_args()
 
-    df_raw = load_raw_data(args.input)
-    if df_raw is not None:
-        df_clean = clean_data(df_raw)
-        df_std = standardize_data(df_clean)
-        save_prepared_data(df_std, args.output)
+    if args.mode == 'candle':
+        df_raw = load_raw_data(args.input)
+        if df_raw is not None:
+            df_clean = clean_data(df_raw)
+            df_std = standardize_data(df_clean)
+            save_prepared_data(df_std, args.output)
+
+    elif args.mode == 'tick':
+        df_tick = load_tick_data(args.input)
+        if df_tick is not None:
+            # Resample to 1-minute OHLCV using bid price
+            df_tick = df_tick.set_index('datetime')
+            ohlc = df_tick['bid'].resample('1min').ohlc()
+            ohlc['volume'] = df_tick['volume'].resample('1min').sum()
+            ohlc.dropna(inplace=True)
+            ohlc.reset_index(inplace=True)
+            ohlc.columns = ['Date', 'Open', 'High', 'Low', 'Close', 'Volume']
+            save_prepared_data(ohlc, args.output)
