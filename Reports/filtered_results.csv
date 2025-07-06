@@ -1,0 +1,3 @@
+# filtered_results.csv
+# This file contains the filtered and ranked strategies after evaluation.
+# Columns: strategy_name, profit, drawdown, winrate, ...
