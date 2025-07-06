@@ -6,3 +6,4 @@ jinja2
 weasyprint
 streamlit
 joblib
+numpy
