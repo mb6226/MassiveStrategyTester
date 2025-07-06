@@ -1,3 +1,4 @@
-# all_results.csv
-# This file contains the raw results of all backtested strategies.
-# Columns: strategy_name, profit, drawdown, winrate, ...
+strategy_name,profit,drawdown,winrate,trades
+EMA50_RSI14_ATR14_TP100_SL30,320.5,18.3,62.5,80
+EMA200_RSI7_ATR14_TP150_SL60,110.2,9.1,55.0,45
+EMA20_RSI21_ATR14_TP50_SL30,-55.0,35.6,40.0,100
