@@ -16,26 +16,24 @@ This project is designed to generate, backtest, evaluate, and select the best-pe
 
 ## 🧩 Project Structure
 
+```
 MassiveStrategyTester/
-├── Docs/ # Project documentation
-│ └── project_description.md
-├── Data/ # Historical data (from Tickstory)
-├── PythonCore/ # Python engine for generation, testing, AI filtering
-│ ├── generator.py
-│ ├── backtester.py
-│ ├── evaluator.py
-│ └── ai_module.py
-├── MT5_Core/ # MQL5 code for strategy testing in MetaTrader
-│ ├── StrategyTemplate.mq5
-│ ├── BatchBacktest.mq5
-│ └── ResultsLogger.mqh
-├── Reports/ # Output results and charts
-├── README.md # This file
+├── Docs/           # Project documentation
+│   └── project_description.md
+├── Data/           # Historical data (from Tickstory)
+├── PythonCore/     # Python engine for generation, testing, AI filtering
+│   ├── generator.py
+│   ├── backtester.py
+│   ├── evaluator.py
+│   └── ai_module.py
+├── MT5_Core/       # MQL5 code for strategy testing in MetaTrader
+│   ├── StrategyTemplate.mq5
+│   ├── BatchBacktest.mq5
+│   └── ResultsLogger.mqh
+├── Reports/        # Output results and charts
+├── README.md       # This file
 └── .gitignore
-
-yaml
-Copy
-Edit
+```
 
 ---
 
