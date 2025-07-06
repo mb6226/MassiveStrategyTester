@@ -136,4 +136,31 @@ For questions or bug reports, open an issue.
 
 ---
 
+---
+
+## 12. Preparing Market Data
+
+To ensure your raw market data is usable by the pipeline, follow these steps:
+
+1. Place your raw CSV data file (e.g., `raw_data.csv`) inside the `Data/` folder.
+
+2. Run the data preparation script:
+
+   python PythonCore/data_preparation.py --input Data/raw_data.csv --output Data/prepared_data.csv
+
+3. The script will clean, standardize, and save the prepared data as `prepared_data.csv`.
+
+4. Use `prepared_data.csv` as input for the main pipeline, e.g.:
+
+   python PythonCore/pipeline.py --data Data/prepared_data.csv --symbol EURUSD --num_strategies 500
+
+---
+
+Notes:
+
+- The raw CSV should contain columns like Date, Open, High, Low, Close, and Volume.
+- The script handles missing data by removing incomplete rows.
+- Date columns are parsed into proper datetime format.
+
+
 Happy backtesting! 🚀
