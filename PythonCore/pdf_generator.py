@@ -1,6 +1,7 @@
-import pdfkit
 import sys
 import os
+sys.path.insert(0, os.path.join(os.getcwd(), '.venv', 'Lib', 'site-packages'))
+import pdfkit
 
 def generate_pdf(input_html, output_pdf):
     config = pdfkit.configuration(wkhtmltopdf=r"C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf.exe")
