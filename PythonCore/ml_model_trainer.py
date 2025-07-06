@@ -28,13 +28,13 @@ def train_model():
 
     y_pred = model.predict(X_test)
 
-    print("✅ Classification Report:")
+    print("Classification Report:")
     print(classification_report(y_test, y_pred))
-    print("📊 Confusion Matrix:")
+    print("Confusion Matrix:")
     print(confusion_matrix(y_test, y_pred))
 
     joblib.dump(model, MODEL_FILE)
-    print(f"🎉 Model saved to {MODEL_FILE}")
+    print(f"Model saved to {MODEL_FILE}")
 
 if __name__ == "__main__":
     train_model()
