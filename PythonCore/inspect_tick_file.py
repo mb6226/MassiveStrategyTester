@@ -1,7 +1,7 @@
 import pandas as pd
 
 def inspect_tick_file(file_path, num_lines=5):
-    print(f"🔍 Inspecting file: {file_path}\n")
+    print(f"Inspecting file: {file_path}\n")
     
     try:
         with open(file_path, 'r') as f:
@@ -9,18 +9,18 @@ def inspect_tick_file(file_path, num_lines=5):
                 line = f.readline().strip()
                 print(f"Line {i+1}: {line}")
     except Exception as e:
-        print(f"❌ Error reading file: {e}")
+        print(f"Error reading file: {e}")
         return
     
-    print("\n📋 Attempting to load sample with pandas...")
+    print("\nAttempting to load sample with pandas...")
     try:
         df = pd.read_csv(file_path, nrows=num_lines, header=None)
-        print("\n🧾 Detected Columns:")
+        print("\nDetected Columns:")
         print(df.head())
-        print("\n🧠 Sample types:")
+        print("\nSample types:")
         print(df.dtypes)
     except Exception as e:
-        print(f"❌ Pandas failed to load the file: {e}")
+        print(f"Pandas failed to load the file: {e}")
 
 if __name__ == "__main__":
     import argparse

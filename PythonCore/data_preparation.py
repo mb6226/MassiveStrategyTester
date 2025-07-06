@@ -102,10 +102,10 @@ def load_tick_data(file_path):
         # Convert prices/volume to numeric
         df[['bid', 'ask', 'last', 'volume']] = df[['bid', 'ask', 'last', 'volume']].apply(pd.to_numeric, errors='coerce')
 
-        print(f"✅ Loaded {len(df)} ticks from file: {file_path}")
+        print(f"Loaded {len(df)} ticks from file: {file_path}")
         return df[['datetime', 'bid', 'ask', 'last', 'volume']]
     except Exception as e:
-        print(f"❌ Error loading tick data: {e}")
+        print(f"Error loading tick data: {e}")
         return None
 
 if __name__ == "__main__":

@@ -28,7 +28,7 @@ def run_batch_backtest():
 
     df_results = pd.DataFrame(results)
     df_results.to_csv(RESULTS_FILE, index=False)
-    print(f"✅ Backtest completed for {len(results)} strategies. Results saved to {RESULTS_FILE}")
+    print(f"Backtest completed for {len(results)} strategies. Results saved to {RESULTS_FILE}")
 
 if __name__ == "__main__":
     run_batch_backtest()
