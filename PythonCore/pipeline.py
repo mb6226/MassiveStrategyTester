@@ -20,20 +20,6 @@ def run_script(script_name, args=None):
         print(f"❌ Error in {script_name}:\n{result.stderr}")
         exit(1)
 
-def run_mt5_runner(terminal_path, config_dir):
-    print("🚀 Running mt5_runner.py for batch backtests with MT5...")
-    try:
-        subprocess.run([
-            get_venv_python(),
-            "PythonCore/mt5_runner.py",
-            "--terminal_path", terminal_path,
-            "--config_dir", config_dir
-        ], check=True)
-        print("✅ mt5_runner.py finished successfully.")
-    except subprocess.CalledProcessError as e:
-        print(f"❌ Error in mt5_runner.py:\n{e}")
-        exit(1)
-
 def run_result_parser():
     print("🚀 Running result_parser.py...")
     try:
@@ -54,8 +40,7 @@ def main():
     parser.add_argument("--num_strategies", type=int, default=1000, help="Number of strategies to generate")
     parser.add_argument("--symbol", type=str, default="EURUSD", help="Trading symbol")
     parser.add_argument("--data", type=str, default="Data/EURUSD_M1.csv", help="Path to input data CSV")
-    parser.add_argument("--terminal_path", type=str, required=True, help="Full path to MT5 terminal64.exe")
-    parser.add_argument("--config_dir", type=str, default="Backtests/configs", help="Directory of .ini config files")
+    parser.add_argument("--terminal_path", type=str, required=True, help="Path to MT5 terminal64.exe")
     parser.add_argument("--no-pdf", action="store_true", help="Skip generating PDF report")
 
     args = parser.parse_args()
@@ -65,19 +50,18 @@ def main():
     print(f"  Symbol: {args.symbol}")
     print(f"  Data File: {args.data}")
     print(f"  MT5 Terminal: {args.terminal_path}")
-    print(f"  Config Dir: {args.config_dir}")
     print()
 
-    # Step 1: Generate strategies
+    # Step 1: generator.py ← pass number of strategies
     run_script("generator.py", ["--count", str(args.num_strategies)])
 
-    # Step 2: Prepare/load data in Python (optional preprocessing)
+    # Step 2: strategy_loader.py ← pass data file
     run_script("strategy_loader.py", ["--data", args.data])
 
-    # Step 3: Run batch backtests on MT5 offline data
-    run_mt5_runner(args.terminal_path, args.config_dir)
+    # Step 3: Run MT5 Runner (pass terminal path)
+    run_script("mt5_runner.py", ["--terminal_path", args.terminal_path, "--config_dir", "Backtests/configs"])
 
-    # Step 4: Continue with plotting, optimization, filtering, ML, reporting
+    # Step 4+
     for script in [
         "plot_results.py",
         "optimizer.py",
@@ -87,27 +71,14 @@ def main():
     ]:
         run_script(script)
 
-    # Step 5: Parse MT5 results from Backtests/results folder
+    # Step 5: result_parser
     run_result_parser()
 
-    # Run pareto_filter.py after result_parser
-    print("Running pareto_filter.py...")
-    try:
-        subprocess.run([
-            get_venv_python(),
-            "PythonCore/pareto_filter.py",
-            "--input_file", "Backtests/summary.csv",
-            "--output_file", "Backtests/filtered_strategies.csv"
-        ], check=True)
-        print("pareto_filter.py finished successfully.")
-    except subprocess.CalledProcessError as e:
-        print(f"Error in pareto_filter.py:\n{e}")
-
-    # PDF generation skipped (optional)
+    # Optional: PDF generation (currently disabled)
     # if not args.no_pdf:
     #     run_script("pdf_generator.py")
 
-    print("\nPipeline completed. Report is ready in Reports/")
+    print("\n✅ Pipeline completed. Report is ready in Reports/")
 
 if __name__ == "__main__":
     main()
