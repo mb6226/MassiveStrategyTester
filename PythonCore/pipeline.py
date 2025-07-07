@@ -16,6 +16,19 @@ def run_script(script_name, args=None):
         print(f"❌ Error in {script_name}:\n{result.stderr}")
         exit(1)
 
+def run_result_parser():
+    print("🚀 Running result_parser.py...")
+    try:
+        subprocess.run([
+            "python",
+            "PythonCore/result_parser.py",
+            "--input_dir", "Backtests/results",
+            "--output_file", "Backtests/summary.csv"
+        ], check=True)
+        print("✅ result_parser.py finished successfully.")
+    except subprocess.CalledProcessError as e:
+        print(f"❌ Error in result_parser.py:\n{e}")
+
 def main():
     parser = argparse.ArgumentParser(description="Massive Strategy Tester Pipeline")
 
@@ -32,13 +45,13 @@ def main():
     print(f"  Data File: {args.data}")
     print()
 
-    # Step 1: generator.py ← پاس دادن تعداد
+    # Step 1: generator.py ← pass number of strategies
     run_script("generator.py", ["--count", str(args.num_strategies)])
 
-    # Step 2: strategy_loader.py ← پاس دادن داده
+    # Step 2: strategy_loader.py ← pass data file
     run_script("strategy_loader.py", ["--data", args.data])
 
-    # سایر مراحل بدون پارامتر اضافی
+    # Other steps without extra parameters
     for script in [
         "plot_results.py",
         "optimizer.py",
@@ -47,6 +60,9 @@ def main():
         "report_generator.py"
     ]:
         run_script(script)
+
+    # Run result_parser.py after other steps
+    run_result_parser()
 
     # Remove or comment out PDF generation step
     # if not args.no_pdf:
