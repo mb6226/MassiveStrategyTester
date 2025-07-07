@@ -1,5 +1,3 @@
-# PythonCore/mt5_runner.py
-
 import os
 import argparse
 import subprocess
@@ -25,19 +23,28 @@ def run_backtests(terminal_path, config_dir):
         try:
             subprocess.run(
                 [terminal_path, f"/config:{config_path}"],
-                check=True,
-                timeout=600  # 10 minutes timeout per config
+                check=True
             )
             print(f"✅ Completed: {ini_file}")
-        except subprocess.TimeoutExpired:
-            print(f"⏰ Timeout: {ini_file} took too long and was skipped.")
         except subprocess.CalledProcessError as e:
             print(f"❌ Error running {ini_file}: {e}")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Run MT5 batch backtests using terminal64.exe")
-    parser.add_argument('--terminal_path', type=str, required=False, default="C:\\Program Files\\Assets Global MetaTrader 5 Terminal\\terminal64.exe", help='Full path to terminal64.exe')
-    parser.add_argument('--config_dir', type=str, required=True, help='Directory containing .ini config files')
+    parser.add_argument(
+        '--terminal_path',
+        type=str,
+        required=False,
+        default=r"C:\Program Files\Assets Global MetaTrader 5 Terminal\terminal64.exe",
+        help='Full path to terminal64.exe'
+    )
+    parser.add_argument(
+        '--config_dir',
+        type=str,
+        required=False,
+        default="Backtests/configs",
+        help='Directory containing .ini config files (default: Backtests/configs)'
+    )
     args = parser.parse_args()
 
     run_backtests(args.terminal_path, args.config_dir)
