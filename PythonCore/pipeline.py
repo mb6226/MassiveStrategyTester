@@ -90,6 +90,19 @@ def main():
     # Step 5: Parse MT5 results from Backtests/results folder
     run_result_parser()
 
+    # Run pareto_filter.py after result_parser
+    print("Running pareto_filter.py...")
+    try:
+        subprocess.run([
+            get_venv_python(),
+            "PythonCore/pareto_filter.py",
+            "--input_file", "Backtests/summary.csv",
+            "--output_file", "Backtests/filtered_strategies.csv"
+        ], check=True)
+        print("pareto_filter.py finished successfully.")
+    except subprocess.CalledProcessError as e:
+        print(f"Error in pareto_filter.py:\n{e}")
+
     # PDF generation skipped (optional)
     # if not args.no_pdf:
     #     run_script("pdf_generator.py")
