@@ -4,12 +4,20 @@ import os
 
 def filter_strategies(input_file, output_file):
     if not os.path.exists(input_file):
-        print(f"❌ Input file does not exist: {input_file}")
+        print(f"Input file does not exist: {input_file}")
         return
 
-    df = pd.read_csv(input_file)
+    try:
+        df = pd.read_csv(input_file)
+    except pd.errors.EmptyDataError:
+        print(f"Input file is empty: {input_file}")
+        return
 
-    # ✅ Filtering criteria (customize as needed)
+    if df.empty:
+        print(f"Input file contains only headers or no data: {input_file}")
+        return
+
+    # Filtering criteria (customize as needed)
     filtered = df[
         (df['Profit'] > 0) &
         (df['MaxDrawdown(%)'] < 30) &
@@ -17,12 +25,12 @@ def filter_strategies(input_file, output_file):
     ]
 
     if filtered.empty:
-        print("⚠️ No strategies passed the filter criteria.")
+        print("No strategies passed the filter criteria.")
     else:
-        print(f"✅ {len(filtered)} strategies passed the filter criteria.")
+        print(f"{len(filtered)} strategies passed the filter criteria.")
 
     filtered.to_csv(output_file, index=False)
-    print(f"📄 Filtered strategies saved to: {output_file}")
+    print(f"Filtered strategies saved to: {output_file}")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Filter Pareto-optimal strategies")
