@@ -18,6 +18,12 @@ Batch backtesting in MT5 is achieved by preparing multiple `.ini` files (one per
   - `PythonCore/ini_generator.py`
   - `PythonCore/mt5_runner.py`
 
+> ✅ If you use "Assets Global MetaTrader 5 Terminal" installation, the `terminal64.exe` path is likely:
+> 
+> ```
+> C:\Program Files\Assets Global MetaTrader 5 Terminal\terminal64.exe
+> ```
+
 ---
 
 ## 3. Creating the Base `.ini` File
@@ -91,7 +97,7 @@ python PythonCore/ini_generator.py --count 20
 Use the provided Python script `PythonCore/mt5_runner.py` to run MT5 in batch mode:
 
 ```bash
-python PythonCore/mt5_runner.py --terminal_path "C:\Path\To\terminal64.exe" --config_dir "Backtests/configs/"
+python PythonCore/mt5_runner.py --terminal_path "C:\Program Files\Assets Global MetaTrader 5 Terminal\terminal64.exe" --config_dir "Backtests/configs/"
 ```
 
 This script will loop over all `.ini` files in the specified directory and execute them one by one using MT5.
@@ -139,7 +145,7 @@ MassiveStrategyTester/
 ## 10. Sample Output Command
 
 ```bash
-python PythonCore/mt5_runner.py --terminal_path "C:\Program Files\MetaTrader 5\terminal64.exe" --config_dir "Backtests/configs"
+python PythonCore/mt5_runner.py --terminal_path "C:\Program Files\Assets Global MetaTrader 5 Terminal\terminal64.exe" --config_dir "Backtests/configs"
 ```
 
 > Each strategy will run inside MT5 with the specified `.ini` file. Results (e.g. HTML/CSV) will be saved in the path defined in each `.ini`.
