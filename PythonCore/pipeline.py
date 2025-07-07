@@ -59,7 +59,7 @@ def main():
     run_script("strategy_loader.py", ["--data", args.data])
 
     # Step 3: Run MT5 Runner (pass terminal path)
-    run_script("mt5_runner.py", ["--terminal_path", args.terminal_path, "--config_dir", "Backtests/configs"])
+    run_script("mt5_runner.py", ["--terminal_path", "C:\\Program Files\\Assets Global MetaTrader 5 Terminal\\terminal64.exe", "--config_dir", "Backtests/configs"])
 
     # Step 4+
     for script in [
