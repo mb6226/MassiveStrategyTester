@@ -25,9 +25,12 @@ def run_backtests(terminal_path, config_dir):
         try:
             subprocess.run(
                 [terminal_path, f"/config:{config_path}"],
-                check=True
+                check=True,
+                timeout=600  # 10 minutes timeout per config
             )
             print(f"✅ Completed: {ini_file}")
+        except subprocess.TimeoutExpired:
+            print(f"⏰ Timeout: {ini_file} took too long and was skipped.")
         except subprocess.CalledProcessError as e:
             print(f"❌ Error running {ini_file}: {e}")
 
