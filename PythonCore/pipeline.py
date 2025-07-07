@@ -28,6 +28,7 @@ def run_result_parser():
         print("✅ result_parser.py finished successfully.")
     except subprocess.CalledProcessError as e:
         print(f"❌ Error in result_parser.py:\n{e}")
+        exit(1)
 
 def main():
     parser = argparse.ArgumentParser(description="Massive Strategy Tester Pipeline")
@@ -67,6 +68,7 @@ def main():
     # Remove or comment out PDF generation step
     # if not args.no_pdf:
     #     run_script("pdf_generator.py")
+
     print("\nPipeline completed. Report is ready in Reports/")
 
 if __name__ == "__main__":
