@@ -2,9 +2,14 @@ import subprocess
 import os
 import argparse
 
+def get_venv_python():
+    # Returns the path to the venv's python.exe if it exists, else 'python'
+    venv_python = os.path.join(os.getcwd(), ".venv", "Scripts", "python.exe")
+    return venv_python if os.path.isfile(venv_python) else "python"
+
 def run_script(script_name, args=None):
     script_path = os.path.join("PythonCore", script_name)
-    cmd = ["python", script_path]
+    cmd = [get_venv_python(), script_path]
     if args:
         cmd += args
     print(f"🚀 Running {script_name}...")
@@ -20,7 +25,7 @@ def run_result_parser():
     print("🚀 Running result_parser.py...")
     try:
         subprocess.run([
-            "python",
+            get_venv_python(),
             "PythonCore/result_parser.py",
             "--input_dir", "Backtests/results",
             "--output_file", "Backtests/summary.csv"
@@ -73,7 +78,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-# Activate virtual environment and install dependencies
-subprocess.run([".\\.venv\\Scripts\\activate"], shell=True)
-subprocess.run(["pip", "install", "beautifulsoup4"])
