@@ -1,30 +1,27 @@
+# PythonCore/ini_generator.py
+
 import os
 import argparse
 
-def generate_ini_files(template_path, output_dir, param_name, start, stop, step):
-    # Load the base ini template
-    with open(template_path, 'r') as file:
-        template = file.read()
+def generate_ini(template_path, output_dir, strategies):
+    with open(template_path, 'r') as f:
+        template = f.read()
 
     os.makedirs(output_dir, exist_ok=True)
 
-    # Generate ini files with different parameter values
-    for value in range(start, stop + 1, step):
-        modified = template.replace(f"{param_name}=default", f"{param_name}={value}")
-        output_path = os.path.join(output_dir, f"{param_name}_{value}.ini")
-        with open(output_path, 'w') as f:
-            f.write(modified)
+    for i, strategy in enumerate(strategies):
+        ini_content = template.replace("{{STRATEGY_PARAMS}}", strategy)
+        output_path = os.path.join(output_dir, f"config_{i+1}.ini")
+        with open(output_path, 'w') as out:
+            out.write(ini_content)
         print(f"✅ Created: {output_path}")
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--template', type=str, default='Backtests/template.ini', help='Path to base .ini file')
-    parser.add_argument('--output_dir', type=str, default='Backtests/configs', help='Directory to save generated .ini files')
-    parser.add_argument('--param', type=str, default='RSI_Period', help='Parameter name to vary')
-    parser.add_argument('--start', type=int, default=5, help='Start value of parameter')
-    parser.add_argument('--stop', type=int, default=15, help='Stop value of parameter')
-    parser.add_argument('--step', type=int, default=2, help='Step size')
+    parser = argparse.ArgumentParser(description="Generate multiple INI files for MT5 backtesting")
+    parser.add_argument('--template', type=str, required=True, help='Path to base .ini file (template)')
+    parser.add_argument('--output_dir', type=str, default='Backtests/configs', help='Directory to save generated INI files')
+    parser.add_argument('--strategies', nargs='+', required=True, help='List of strategy parameter strings to inject')
 
     args = parser.parse_args()
 
-    generate_ini_files(args.template, args.output_dir, args.param, args.start, args.stop, args.step)
+    generate_ini(args.template, args.output_dir, args.strategies)
