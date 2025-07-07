@@ -64,3 +64,29 @@ After all backtests are complete, use the Python scripts in this project to pars
 - Project files:
   - `PythonCore/ini_generator.py`
   - `PythonCore/mt5_runner.py`
+
+---
+
+## 9. Example Directory Structure
+
+```
+MassiveStrategyTester/
+├── Backtests/
+│   └── configs/
+│       ├── strategy_001.ini
+│       ├── strategy_002.ini
+│       └── ...
+├── PythonCore/
+│   ├── ini_generator.py
+│   └── mt5_runner.py
+```
+
+---
+
+## 10. Sample Output Command
+
+```bash
+python PythonCore/mt5_runner.py --terminal_path "C:\Program Files\MetaTrader 5\terminal64.exe" --config_dir "Backtests/configs"
+```
+
+> Each strategy will run inside MT5 with the specified `.ini` file. Results (e.g. HTML/CSV) will be saved in the path defined in each `.ini`.
