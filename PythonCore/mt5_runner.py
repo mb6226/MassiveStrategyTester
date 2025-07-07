@@ -33,7 +33,7 @@ def run_backtests(terminal_path, config_dir):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Run MT5 batch backtests using terminal64.exe")
-    parser.add_argument('--terminal_path', type=str, required=True, help='Full path to terminal64.exe')
+    parser.add_argument('--terminal_path', type=str, required=False, default="C:\\Program Files\\Assets Global MetaTrader 5 Terminal\\terminal64.exe", help='Full path to terminal64.exe')
     parser.add_argument('--config_dir', type=str, required=True, help='Directory containing .ini config files')
     args = parser.parse_args()
 
