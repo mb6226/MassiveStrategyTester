@@ -73,3 +73,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+# Activate virtual environment and install dependencies
+subprocess.run([".\\.venv\\Scripts\\activate"], shell=True)
+subprocess.run(["pip", "install", "beautifulsoup4"])
