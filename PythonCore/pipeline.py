@@ -38,7 +38,7 @@ def main():
     parser = argparse.ArgumentParser(description="Massive Strategy Tester Pipeline")
 
     parser.add_argument("--num_strategies", type=int, default=1000, help="Number of strategies to generate")
-    parser.add_argument("--data", type=str, default="Data/EURUSD_M1.csv", help="Path to input data CSV")
+    parser.add_argument("--data", type=str, default="Data/dummy.csv", help="Path to input data CSV (default: Data/dummy.csv)")
     parser.add_argument("--terminal_path", type=str, required=True, help="Path to MT5 terminal64.exe")
     parser.add_argument("--no-pdf", action="store_true", help="Skip generating PDF report")
 
