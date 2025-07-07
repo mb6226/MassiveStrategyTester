@@ -3,25 +3,31 @@
 import os
 import argparse
 
-def generate_ini(template_path, output_dir, strategies):
-    with open(template_path, 'r') as f:
-        template = f.read()
+TEMPLATE_PATH = "Backtests/configs/template.ini"
+OUTPUT_DIR = "Backtests/configs/"
+STRATEGY_COUNT = 10  # change as needed
 
-    os.makedirs(output_dir, exist_ok=True)
+def generate_ini(template_path, output_dir, count):
+    with open(template_path, 'r') as file:
+        template = file.read()
 
-    for i, strategy in enumerate(strategies):
-        ini_content = template.replace("{{STRATEGY_PARAMS}}", strategy)
-        output_path = os.path.join(output_dir, f"config_{i+1}.ini")
-        with open(output_path, 'w') as out:
-            out.write(ini_content)
-        print(f"✅ Created: {output_path}")
+    for i in range(1, count + 1):
+        strategy_id = f"{i:03}"
+        output_file = os.path.join(output_dir, f"strategy_{strategy_id}.ini")
+        
+        # 👇 Simple replacement logic
+        ini_content = template.replace("{STRATEGY_ID}", strategy_id)
+
+        with open(output_file, 'w') as f:
+            f.write(ini_content)
+        print(f"✅ Created: {output_file}")
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Generate multiple INI files for MT5 backtesting")
-    parser.add_argument('--template', type=str, required=True, help='Path to base .ini file (template)')
-    parser.add_argument('--output_dir', type=str, default='Backtests/configs', help='Directory to save generated INI files')
-    parser.add_argument('--strategies', nargs='+', required=True, help='List of strategy parameter strings to inject')
-
+    parser = argparse.ArgumentParser(description="INI Batch Generator")
+    parser.add_argument('--template', type=str, default=TEMPLATE_PATH)
+    parser.add_argument('--output', type=str, default=OUTPUT_DIR)
+    parser.add_argument('--count', type=int, default=STRATEGY_COUNT)
     args = parser.parse_args()
 
-    generate_ini(args.template, args.output_dir, args.strategies)
+    os.makedirs(args.output, exist_ok=True)
+    generate_ini(args.template, args.output, args.count)
