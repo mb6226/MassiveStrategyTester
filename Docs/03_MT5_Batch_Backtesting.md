@@ -149,3 +149,27 @@ python PythonCore/mt5_runner.py --terminal_path "C:\Program Files\Assets Global 
 ```
 
 > Each strategy will run inside MT5 with the specified `.ini` file. Results (e.g. HTML/CSV) will be saved in the path defined in each `.ini`.
+
+
+# MT5 Batch Backtesting with Asset Global Terminal and Offline EURUSD1 Data
+
+This section explains how to set up and run batch backtests in MetaTrader 5 using the Asset Global terminal and offline data for the EURUSD1 symbol.
+
+---
+
+## 1. Introduction
+
+The goal of this section is to provide a step-by-step guide for automated batch backtesting of many strategies in MT5 using `.ini` files and running the MT5 terminal via command line.
+
+---
+
+## 2. Prerequisites
+
+- MetaTrader 5 installed (Asset Global version)
+- Access to the terminal executable `terminal64.exe` (default path in examples:  
+  `C:\Program Files\Assets Global MetaTrader 5 Terminal\terminal64.exe`)
+- Compiled Expert Advisor (`.ex5` file)
+- Batch backtest `.ini` files (template and samples)
+- Prepared offline data for the EURUSD1 symbol in the MT5 terminal data path
+
+
