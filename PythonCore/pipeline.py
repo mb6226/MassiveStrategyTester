@@ -56,8 +56,8 @@ def main():
     # Step 2: strategy_loader.py ← pass data file
     run_script("strategy_loader.py", ["--data", args.data])
 
-    # Step 3: Run MT5 Runner (pass terminal path)
-    run_script("mt5_runner.py", ["--terminal_path", args.terminal_path, "--config_dir", "Backtests/configs"])
+    # Step 3: Run MT5 Runner (do not pass terminal_path, let mt5_runner.py use its own default)
+    run_script("mt5_runner.py", ["--config_dir", "Backtests/configs"])
 
     # Step 4+
     for script in [
